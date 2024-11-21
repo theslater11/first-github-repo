@@ -2,7 +2,7 @@ import math
 
 # 1) Given this list, access the "hello" element using multi-dimension indices
 lst = [1, 2, [3, 4], [5, [100, 200, ['hello']], 23, 11], 1, 7]
-print(lst[3][1][-1])
+print(lst[3][1][-1][0])
 """
 2) You are driving a little too fast, and a police officer stops you. Write a
 function to return one of 3 possible results: "No ticket", "Small ticket", or
@@ -15,7 +15,14 @@ birthday (encoded as a boolean value in the parameters of the function)
 
 
 def caught_speeding(speed, is_birthday):
-    pass
+    if is_birthday:
+        speed = speed - 5
+    if speed < 60:
+        return("No Ticket")
+    elif speed > 60 and speed < 80:
+       return ("Small Ticket")
+    else:
+        return("Big Ticket")
 
 
 print(caught_speeding(81, True))
@@ -25,7 +32,7 @@ print(caught_speeding(81, False))
 # 3) Create a function called "emailer" which takes a string and concatenates "@gmail.com" to
 # this string before returning it
 def emailer(word):
-    pass
+    return word + "@gmail.com"
 
 
 print(emailer("test@gmail.com"))
@@ -35,17 +42,19 @@ print(emailer("gmail@gmail.com"))
 # 4a) Create a function called "areacirc" that takes in a radius and
 # calculates the area
 def areaCirc(rad):
-    math.pi * (rad * 2)
+    math.pi * (rad ** 2)
 
 
 # 4b) use this function to calc the area of a circle with a radius of 5
 # (answer should be ~78.5398)
-...
+print(areaCirc(5))
 
 # 5a) Create a function that converts kilometers to miles
 # there are roughly 1.61 km in one mile
-...
+def kilo_to_miles(kilos: float) -> float:
+    miles = kilos * 1.61
+    return miles
 
 
 # 5b) use this function to convert 10km to miles
-...
+print(kilo_to_miles(10.0))
